@@ -2,10 +2,11 @@ import { Route, Routes, Link } from "react-router-dom";
 
 import { Home } from "./pages/Home";
 import { BookList } from "./pages/BookList";
+import { Book } from "./pages/Book";
 
 function App() {
   return (
-    <>
+    <div>
       <nav>
         <ul>
           <li>
@@ -19,8 +20,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/books" element={<BookList />} />
+        <Route path="/books/:id" element={<Book />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
