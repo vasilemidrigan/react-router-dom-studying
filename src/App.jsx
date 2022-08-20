@@ -1,4 +1,4 @@
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, NavLink } from "react-router-dom";
 
 import "./index.css";
 
@@ -28,18 +28,22 @@ function App() {
           <ul>
             <li>
               {/* 
-              replace - 
-              will delete the last visited
-              page from history, so clicking back in 
-              the browser will go the last but one page 
-              reload document will reload the page 
+                 We can use className in the same way we use
+                 style
               */}
-              <Link to="/" replace reloadDocument>
+              <NavLink
+                style={({ isActive }) => {
+                  return isActive ? { border: "1px dashed" } : {};
+                }}
+                to="/"
+                replace
+                reloadDocument
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/books">Books</Link>
+              <NavLink to="/books">Books</NavLink>
             </li>
           </ul>
         </nav>
