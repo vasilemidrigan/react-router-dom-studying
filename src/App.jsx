@@ -14,6 +14,28 @@ function App() {
   return (
     <div className="App">
       <>
+        {/* Extra Content */}
+
+        {/* 
+           We can use the same path for different 
+           Routes in order to render them together,
+           for ex for a sidebar, where we need a
+           sidebar design on some of the pages, 
+           and another design for some other pages.
+        
+        */}
+
+        <Routes>
+          <Route
+            path="/books"
+            element={
+              <h3 className="extra-content">
+                Booklist page under construction!
+              </h3>
+            }
+          />
+        </Routes>
+
         {/* Homepage Navigation Bar */}
 
         <nav className="homepage__nav">

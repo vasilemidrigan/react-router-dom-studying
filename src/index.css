@@ -8,6 +8,8 @@ a {
 
 /* Common Styles */
 .App,
+.extra-content,
+.BookLayout,
 .BookList,
 .Book,
 .NewBook,
@@ -19,6 +21,13 @@ a {
 .BookList,
 .Book {
   height: 50%;
+}
+
+/* Extra Content */
+
+.extra-content {
+  background-color: yellow;
+  border: 5px dashed red;
 }
 
 /* App Component */
@@ -33,6 +42,11 @@ a {
   border-radius: 10px;
   margin: 10px;
   padding: 5px;
+}
+
+/* BookLayout Component */
+.BookLayout {
+  background-color: lightpink;
 }
 
 /* BookList Component */
