@@ -1,17 +1,14 @@
 import { Link, useParams } from "react-router-dom";
 
+import book from "../img/book.png";
+
 export function Book() {
-  // one of the many custom hooks that comes with
-  // React Router
-
-  // Using useParams() is a common pattern to use
-  // in the React Router
-
   const { id } = useParams();
 
   return (
-    <>
-      <h1>Book {id}</h1>
-    </>
+    <div className="Book">
+      <h1>Book {id} page</h1>
+      <img src={book} className="book__img" alt="book" />
+    </div>
   );
 }
