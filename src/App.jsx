@@ -4,8 +4,11 @@ import "./index.css";
 
 import { Home } from "./pages/Home";
 import { BookList } from "./pages/BookList";
+import { BookLayout } from "./pages/BookLayout";
 import { Book } from "./pages/Book";
+import { RussianBook } from "./pages/RussianBook";
 import { NewBook } from "./pages/NewBook";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
   return (
@@ -28,9 +31,19 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/books" element={<BookList />} />
-          <Route path="/books/:id" element={<Book />} />
-          <Route path="/books/new" element={<NewBook />} />
+          {/* 
+              We can delete the path of the parent 
+              Route if the child Routes are not  
+              related to each other.
+          */}
+          <Route path="/books" element={<BookLayout />}>
+            <Route index element={<BookList />} />
+            <Route path=":id" element={<Book />} />
+            <Route path="rus" element={<RussianBook />} />
+            <Route path="new" element={<NewBook />} />
+          </Route>
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </>
     </div>
