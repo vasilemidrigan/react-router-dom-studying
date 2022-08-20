@@ -12,7 +12,7 @@ export function BookLayout() {
       <Link to="/books/new">New Book </Link>
       <Outlet
         context={{
-          bookName: "Crime and Punishment",
+          name: "Crime and Punishment",
           author: "Fyodor Dostoevsky",
         }}
       />

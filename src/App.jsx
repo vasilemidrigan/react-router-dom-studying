@@ -3,11 +3,7 @@ import { Route, Routes, Link } from "react-router-dom";
 import "./index.css";
 
 import { Home } from "./pages/Home";
-import { BookList } from "./pages/BookList";
-import { BookLayout } from "./pages/BookLayout";
-import { Book } from "./pages/Book";
-import { RussianBook } from "./pages/RussianBook";
-import { NewBook } from "./pages/NewBook";
+import { BookRoutes } from "./pages/BookRoutes";
 import { NotFound } from "./pages/NotFound";
 
 function App() {
@@ -15,16 +11,6 @@ function App() {
     <div className="App">
       <>
         {/* Extra Content */}
-
-        {/* 
-           We can use the same path for different 
-           Routes in order to render them together,
-           for ex for a sidebar, where we need a
-           sidebar design on some of the pages, 
-           and another design for some other pages.
-        
-        */}
-
         <Routes>
           <Route
             path="/books"
@@ -41,7 +27,16 @@ function App() {
         <nav className="homepage__nav">
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              {/* 
+              replace - 
+              will delete the last visited
+              page from history, so clicking back in 
+              the browser will go the last but one page 
+              reload document will reload the page 
+              */}
+              <Link to="/" replace reloadDocument>
+                Home
+              </Link>
             </li>
             <li>
               <Link to="/books">Books</Link>
@@ -53,18 +48,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* 
-              We can delete the path of the parent 
-              Route if the child Routes are not  
-              related to each other.
-          */}
-          <Route path="/books" element={<BookLayout />}>
-            <Route index element={<BookList />} />
-            <Route path=":id" element={<Book />} />
-            <Route path="rus" element={<RussianBook />} />
-            <Route path="new" element={<NewBook />} />
-          </Route>
-
+          <Route path="/books/*" element={<BookRoutes />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </>
