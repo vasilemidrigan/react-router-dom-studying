@@ -27,23 +27,20 @@ function App() {
         <nav className="homepage__nav">
           <ul>
             <li>
-              {/* 
-                 We can use className in the same way we use
-                 style
-              */}
-              <NavLink
-                style={({ isActive }) => {
-                  return isActive ? { border: "1px dashed" } : {};
-                }}
-                to="/"
-                replace
-                reloadDocument
-              >
+              <NavLink to="/" replace reloadDocument>
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/books">Books</NavLink>
+              <NavLink
+                to="/books"
+                end 
+                style={({ isActive }) => {
+                  return isActive ? { border: "1px dashed" } : {};
+                }}
+              >
+                Books
+              </NavLink>
             </li>
           </ul>
         </nav>
